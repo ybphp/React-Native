@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>深入理解javaScript原型链和闭包</title>
+  </head>
+  <body>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+  // javascript中一个常用的运算符——typeof。一元操作符typeof函数输出的一共有几种类型，在此列出：
+  function showTypeOf(x) {
+    //以下typeof输出的（undefined, number, string, boolean）属于简单的值类型
+    console.log('x:', typeof x);
+    console.log('123:', typeof 123);
+    console.log('"123"', typeof '123');
+    console.log('abc', typeof 'abc');
+    console.log('true', typeof true);
+    console.log('false', typeof false);
+
+    // 函数、数组、对象、null、new Number(10)都是对象,都是引用类型
+    console.log('函数：', typeof function(){});
+    console.log('数组：', typeof [1,'a',{a:1,b:2}]);
+    console.log('json：', typeof {a:1,b:2});
+    console.log('null:', typeof null);
+    console.log('对象:', typeof new Number(10));
+  }
+  showTypeOf();
+
+  //证明函数是对象
+  var fn = function(){};
+  console.log('函数是对象吗？', fn instanceof Object);
+
+  //证明jq的$符是函数
+  console.log('$:', typeof $);
+
+  //函数作为对象被赋属性的操作
+  var fnProperty = function(){ console.log('函数作为对象被赋属性的操作:', "this is Func")}
+  fnProperty.a = 1;
+  fnProperty.b = function(){
+    // alert('This is Func.b');
+  }
+  fnProperty.c = {a:1,b:2};
+
+  for(var fnI in fnProperty){
+    console.log(fnI);
+  }
+  $newFn = new fnProperty();
+  console.log($newFn);
+
+  // 每个函数都有一个属性叫做prototype;这个prototype的属性值是一个对象（属性的集合），默认的只有一个叫做constructor的属性
+  // 每个对象都有一个__proto__，可成为隐式原型
+  console.log('__proto__:', $newFn.__proto__);
+
+  // 访问一个对象的属性时，先在基本属性中查找，如果没有，再沿着__proto__这条链向上找，这就是原型链。实际应用中如何区分一个属性到底是基本的还是从原型中找到的呢？hasOwnProperty，特别是在for…in…循环中
+  function Foo(){};
+  var foo1 = new Foo();
+  foo1.a = 1;
+  Foo.prototype.a = 10;
+  Foo.prototype.b = 2;
+  console.log(Foo);
+  for(var item in foo1){
+    console.log('基本属性：', item);
+    //原型中找到的属性
+    if(foo1.hasOwnProperty(item)){
+      console.log('原型链属性：', item);
+    }
+  }
+
+  /**
+  *研究执行上下文环境：
+  *变量、函数表达式——变量声明，默认赋值为undefined；
+  *this——赋值；
+  *函数声明——赋值；
+  */
+  console.log("未定义：", abc)
+  var abc = 100; //声明：默认值是undefined
+  console.log('this：', this);
+
+  console.log(fnabc);
+  function fnabc(){};//函数声明
+
+  console.log(fnabcd);
+  var fnabcd = function(){};//函数表达式
+
+  var fnaq = new Function('x', "console.log(x+2)");
+  console.log('fnaq:', fnaq);
+  //eval代码接收的也是一段文本形式的代码。
+  // eval("alert(123)");
+
+  //函数每被调用一次，都会产生一个新的执行上下文环境
+  function fnbc(x){
+    console.log(arguments);
+    console.log('x:', x);
+  }
+  fnbc(10);
+
+  //函数在定义的时候（不是调用的时候），就已经确定了函数体内部自由变量的作用域
+  var bcd = 10;
+  function fnbcd() {
+    console.log('bcd:', bcd);//bcd是自由变量，函数创建时就去确定了bcd取值的作用域
+  }
+
+  function bar(fn){
+    var bcd = 20;
+    fn();
+  }
+  bar(fnbcd);
+
+  /**
+  *聊聊This
+  *在函数中this到底取何值，是在函数真正被调用执行的时候确定的，函数定义的时候确定不了。
+  *因为this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境。
+  */
+  /**
+  *情况1：构造函数:所谓构造函数就是用来new对象的函数。
+  *其实严格来说，所有的函数都可以new一个对象，但是有些函数的定义是为了new一个对象，而有些函数则不是。
+  *另外注意，构造函数的函数名第一个字母大写（规则约定）。例如：Object、Array、Function等。
+  *如果函数作为构造函数用，那么其中的this就代表它即将new出来的对象。
+  */
+  function Funcyang() {
+    this.name = "杨斌";
+    this.age = 27;
+    console.log("this构造函数：", Funcyang);
+  }
+  funcyangObj = new Funcyang();
+  console.log(funcyangObj.name);
+
+  //构造函数的prototype中，this代表着什么?
+  function FnPropertyThis(name){
+    this.name = name;
+    this.age = 23;
+  }
+
+  FnPropertyThis.prototype.getName = function() {
+    console.log('prototype this:' ,this.name);
+  }
+  //不仅仅是构造函数的prototype，即便是在整个原型链中，this代表的也都是当前对象的值
+  var fnThisObjOne = new FnPropertyThis('ybphp');
+  fnThisObjOne.getName();
+  var fnThisObjTwo = new FnPropertyThis('yrjns');
+  fnThisObjTwo.getName();
+
+  //情况2：如果函数作为对象的一个属性时，并且作为对象的一个属性被调用时，函数中的this指向该对象。
+  var obj = {
+    xcde:10,
+    fncde:function(){
+      console.log(this);
+      console.log(this.xcde);
+    }
+  };
+  obj.fncde();
+  //注意，如果fncde函数不作为obj的一个属性被调用，会是什么结果呢？
+  var fncde1 = obj.fncde;
+  fncde1();//如果fn函数被赋值到了另一个变量中，并没有作为obj的一个属性被调用，那么this的值就是window，this.x为undefined。
+
+  //情况4：全局 & 调用普通函数
+  var fnGlobalObj = {
+    gla:11,
+    glaFn:function(){
+      console.log('glaFn:', this);
+      console.log('glaFn:gla',this.gla);
+      glaFnChild:function child() {
+        console.log('child:', this);
+        console.log('child:', this.gla);
+      }
+      child();
+    }
+  }
+  fnGlobalObj.glaFn();//函数f虽然是在fnGlobalObj.glaFn内部定义的，但是它仍然是一个普通的函数，this仍然指向window。
+
+  //理解作用域
+  var ij;
+  for(ij=0; ij<10; ij++){
+    console.log('for i:', ij);
+  }
+
+  /*
+  *作用域链
+  *第一步，现在当前作用域查找a，如果有则获取并结束。如果没有则继续；
+  *第二步，如果当前作用域是全局作用域，则证明a未定义，结束；否则继续；
+  *第三步，（不是全局作用域，那就是函数作用域）将创建该函数的作用域作为当前作用域；
+  *第四步，跳转到第一步。
+  */
+
+  var fx = 100;
+  function fxFun(){
+    var fy = 200;
+    function fbar() {
+      console.log("fx+fy: ", fx+fy);
+    }
+    return fbar();
+  }
+  var fy = 0;
+  fxFun();
+
+  /*
+  *闭包：
+  *应用的两种情况：函数作为返回值，函数作为参数传递。
+  *
+  */
+
+  //1.函数作为返回值
+  function funAxy() {
+    var ax = 108;
+    return function funAy(ay) {
+      console.log("ay,ax：", ax,ay);
+    }
+  }
+  var fay = funAxy();//funAy函数作为返回值，赋值给fay变量
+  fay(1001);
+
+  //2.函数作为参数被传递
+  var maxA = 996,
+  fnMaxa = function(maxB) {
+    console.log('maxA+maxB:', maxA,maxB);
+  };
+  (function fmax(fnmax) {
+    var maxA = 1;
+    fnmax(maxA);//要去创建这个函数的作用域取值，而不是“父作用域”。
+  })(fnMaxa);
+
+  //闭包案例1
+  function closureFunc1(){
+    var result=new Array();
+    for(var i=0;i<10;i++){
+      result[i] = function(){
+        console.log(i);
+        return i;
+      }
+    }
+    console.log(result);
+    return result;
+  }
+  var closure1 = closureFunc1();
+  console.log("闭包案例1:" ,closure1);
+
+  for (var i = 0; i < closure1.length; i++) {
+    console.log(closure1[i]());
+  }
+
+
+  function newClosureFunc1(){
+    var result=new Array();
+    for(var i=0;i<10;i++){
+      result[i] = function(m){
+                        return function(){
+                            return m;
+                        };
+                    }(i);
+    }
+    console.log("闭包案例2:", result);
+    return result;
+  }
+
+  var arr = newClosureFunc1();
+  for (var j = 0; j < arr.length; j++) {
+      console.log(arr[j]());
+  }
+  </script>
+</html>
