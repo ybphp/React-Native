@@ -1,0 +1,85 @@
+post	/Users/yangbin/www/ybphpApp/app/common/request.js	/^request.post = function(url, body, token=''){$/;"	function	line:19
+request.post	/Users/yangbin/www/ybphpApp/app/common/request.js	/^};$/;"	function	line:17
+let.useCdnDomain	/Users/yangbin/www/ybphpApp/app/common/request.js	/^  let config = {$/;"	property	line:60
+let.region	/Users/yangbin/www/ybphpApp/app/common/request.js	/^    useCdnDomain: true,$/;"	property	line:61
+let.fname	/Users/yangbin/www/ybphpApp/app/common/request.js	/^  let putExtra = {$/;"	property	line:64
+let.params	/Users/yangbin/www/ybphpApp/app/common/request.js	/^    fname: "",$/;"	property	line:65
+constructor	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  constructor(options, handlers, statisticsLogger) {$/;"	function	line:25
+putFile	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  putFile() {$/;"	function	line:62
+clear	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  clear() {$/;"	function	line:110
+stop	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  stop() {$/;"	function	line:115
+sendLog	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  sendLog(reqId, code){$/;"	function	line:120
+directUpload	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  directUpload() {$/;"	function	line:136
+resumeUpload	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  resumeUpload() {$/;"	function	line:162
+resumeUpload.loaded.mkFileProgress	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^    this.loaded = {$/;"	property	line:164
+resumeUpload.loaded.chunks	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^      mkFileProgress: 0,$/;"	property	line:165
+uploadChunk	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  uploadChunk(chunkInfo) {$/;"	function	line:196
+this.ctxList.ctx	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^      this.ctxList[index] = {ctx: info.ctx, size: info.size, time: info.time, md5: info.md5};$/;"	property	line:205
+mkFileReq	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  mkFileReq() {$/;"	function	line:247
+updateDirectProgress	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  updateDirectProgress(loaded, total) {$/;"	function	line:272
+updateDirectProgress.progress.total	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^    this.progress = {total: this.getProgressInfoItem(loaded, total + 1)};$/;"	property	line:274
+finishDirectProgress	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  finishDirectProgress() {$/;"	function	line:278
+finishDirectProgress.progress.total	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^      this.progress = { total: this.getProgressInfoItem(this.file.size, this.file.size) };$/;"	property	line:281
+progress.total	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^    this.progress = { total: this.getProgressInfoItem(total.loaded + 1, total.size) };$/;"	property	line:287
+initChunksProgress	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  initChunksProgress() {$/;"	function	line:291
+updateChunkProgress	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  updateChunkProgress(loaded, index) {$/;"	function	line:296
+updateMkFileProgress	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  updateMkFileProgress(progress) {$/;"	function	line:301
+notifyResumeProgress	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  notifyResumeProgress() {$/;"	function	line:306
+notifyResumeProgress.progress.total	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^    this.progress = {$/;"	property	line:307
+getProgressInfoItem	/Users/yangbin/www/ybphpApp/node_modules/qiniu-js/src/upload.js	/^  getProgressInfoItem(loaded, size) {$/;"	function	line:319
+constructor	/Users/yangbin/www/ybphpApp/app/login/Login.js	/^  constructor(props) {$/;"	function	line:29
+state.phoneNumber	/Users/yangbin/www/ybphpApp/app/login/Login.js	/^      this.state = {$/;"	property	line:31
+state.password	/Users/yangbin/www/ybphpApp/app/login/Login.js	/^          phoneNumber:'',$/;"	property	line:32
+state.isPost	/Users/yangbin/www/ybphpApp/app/login/Login.js	/^          password:'',$/;"	property	line:33
+componentDidMount	/Users/yangbin/www/ybphpApp/app/login/Login.js	/^  componentDidMount() {$/;"	function	line:38
+let.token	/Users/yangbin/www/ybphpApp/app/login/Login.js	/^        let body  =   {token: user.token};$/;"	property	line:53
+render	/Users/yangbin/www/ybphpApp/app/login/Login.js	/^  render() {$/;"	function	line:115
+showCustom	/Users/yangbin/www/ybphpApp/app/login/Login.js	/^  showCustom() {$/;"	function	line:171
+let.nextPage	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^let cacheResult = {$/;"	property	line:29
+let.items	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^  nextPage:1,$/;"	property	line:30
+constructor	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^  constructor(props) {$/;"	function	line:40
+state.dataSource	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^    this.state = {$/;"	property	line:42
+componentDidMount	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^  componentDidMount() {$/;"	function	line:74
+let.token	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^    let body =  {$/;"	property	line:117
+renderDrawerMenu	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^  renderDrawerMenu() {$/;"	function	line:154
+render	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^  render() {$/;"	function	line:200
+_renderRow	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^  _renderRow({ item }) {$/;"	function	line:243
+_onloadMore	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^  _onloadMore(){$/;"	function	line:250
+_createListHeader	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^  _createListHeader() {$/;"	function	line:261
+cacheResult.nextPage	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^          cacheResult = {$/;"	property	line:292
+cacheResult.items	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^            nextPage:1,$/;"	property	line:293
+_separator	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^  _separator() {$/;"	function	line:307
+styles	/Users/yangbin/www/ybphpApp/app/creation/Index.js	/^var styles = StyleSheet.create({$/;"	variable	line:314
+config	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^var config = require('..\/common\/config');$/;"	variable	line:22
+request	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^var request = require('..\/common\/request');$/;"	variable	line:23
+constructor	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^  constructor(props) {$/;"	function	line:31
+state.video	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^    this.state = {$/;"	property	line:33
+componentWillMount	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^  componentWillMount() {$/;"	function	line:58
+componentDidMount	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^  componentDidMount() {$/;"	function	line:61
+var.body.video_id	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^    var body = {$/;"	property	line:70
+_fetchData	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^  _fetchData(){$/;"	function	line:91
+let.video_id	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^    let body = {$/;"	property	line:97
+render	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^  render() {$/;"	function	line:120
+_separator	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^  _separator() {$/;"	function	line:253
+_createListHeader	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^  _createListHeader(){$/;"	function	line:257
+setModalVisible	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^  setModalVisible(visible) {$/;"	function	line:342
+_renderRow	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^  _renderRow({ item }) {$/;"	function	line:346
+getCurrentTimePercentage	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^  getCurrentTimePercentage() {$/;"	function	line:414
+styles	/Users/yangbin/www/ybphpApp/app/creation/Detail.js	/^var styles = StyleSheet.create({$/;"	variable	line:423
+config	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^var config = require('..\/common\/config');$/;"	variable	line:25
+request	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^var request = require('..\/common\/request');$/;"	variable	line:26
+constructor	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^    constructor(props) {$/;"	function	line:35
+componentDidMount	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^    componentDidMount() {$/;"	function	line:75
+const.title	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^      const options = {$/;"	property	line:121
+const.cancelButtonTitle	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^        title: '选择视频',$/;"	property	line:122
+const.takePhotoButtonTitle	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^        cancelButtonTitle:'取消',$/;"	property	line:123
+const.chooseFromLibraryButtonTitle	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^        takePhotoButtonTitle:'录制10秒视频',$/;"	property	line:124
+const.mediaType	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^        chooseFromLibraryButtonTitle:'选择已有视频',$/;"	property	line:125
+const.videoQuality	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^        mediaType:'video',$/;"	property	line:126
+const.durationLimit	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^        videoQuality:'medium',   \/\/视频质量$/;"	property	line:127
+file.uri	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^        file = { uri:response.uri, type:'application\/octet-stream', name: response.path }$/;"	property	line:159
+subscription	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^      var subscription = observable.subscribe(next, error, complete)$/;"	variable	line:202
+render	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^    render() {$/;"	function	line:255
+setModalVisible	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^    setModalVisible(visible) {$/;"	function	line:382
+getCurrentTimePercentage	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^    getCurrentTimePercentage() {$/;"	function	line:446
+_separator	/Users/yangbin/www/ybphpApp/app/video/Video.js	/^    _separator() {$/;"	function	line:457
